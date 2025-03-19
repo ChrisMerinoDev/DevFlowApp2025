@@ -36,3 +36,13 @@ type ErrorResponse = ActionResponse<undefined> & { success: false };
 
 type APIErrorResponse = NextResponse<ErrorResponse>;
 type APIResponse<T = null> = NextResponse<SuccessResponse<T> | ErrorResponse>;
+
+interface RouteParams {
+  // The record containing <string, string> means that it is a key value pair.
+  params: Promise<Record<string, string>>;
+  searchParams: Promise<Record<string, string>>;
+}
+
+// Difference between params and searchParams
+// params: /questions/123
+// searchParams: /questions?tag=javascript
