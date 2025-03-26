@@ -28,3 +28,8 @@ interface EditQuestionParams extends CreateQuestionParams {
 interface GetQuestionParams {
   questionId: string;
 }
+
+interface GetTagQuestionsParams extends Omit<PaginatedSearchParams, "filter"> {
+  // We can Omit to add specific params to add new ones for example the "tagId". This is an advanced TypeScript functionality.
+  tagId: string;
+}
