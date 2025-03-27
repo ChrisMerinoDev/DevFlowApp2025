@@ -37,6 +37,8 @@ const Page = async ({ params, searchParams }: RouteParams) => {
         />
       </section>
 
+      <div className="mt-44"></div>
+
       <DataRenderer
         success={success}
         error={error}
