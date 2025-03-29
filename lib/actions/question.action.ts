@@ -218,7 +218,10 @@ export async function getQuestion(
   // Once we get it we will open a new try/catch block.
 
   try {
-    const question = await Question.findById(questionId).populate("tags"); // Here we find our question on the server by its ID and we populate the tags.
+    // Here we find our question on the server by its ID and we populate the tags.
+    const question = await Question.findById(questionId)
+      .populate("tags")
+      .populate("author", "_id name image");
 
     if (!question) {
       throw new Error("Question not Found.");
